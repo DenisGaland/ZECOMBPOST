@@ -60,7 +60,9 @@
 		"dependencies": {
 			"minUI5Version": "1.30.0",
 			"libs": {
-				"sap.collaboration": {},
+				"sap.apf": {
+					"minVersion": ""
+				},
 				"sap.m": {},
 				"sap.ui.comp": {},
 				"sap.ui.core": {},
@@ -97,7 +99,7 @@
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
-					"defaultBindingMode": "TwoWay",
+					"defaultBindingMode": "OneWay",
 					"defaultCountMode": "Request"
 				},
 				"dataSource": "ZECOMBPOST_SRV",

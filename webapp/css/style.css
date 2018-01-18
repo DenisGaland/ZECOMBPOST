@@ -4,6 +4,22 @@
     height: 40px;
 }
 
-.rede {
+.red {
     background-color: #FF3300 !important;
+}
+
+.grey {
+    background-color: #A0A0A0 !important;
+}
+
+.green {
+    background-color: #4C9900 !important;
+}
+
+.orange {
+    background-color: #FF8C00 !important;
+}
+
+.yellow {
+    background-color: #FFFF33 !important;
 }

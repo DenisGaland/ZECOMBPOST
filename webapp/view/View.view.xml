@@ -2,197 +2,165 @@
 	xmlns:core="sap.ui.core" xmlns:u="sap.ui.table" controllerName="ZECOMBPOST.controller.View" displayBlock="true">
 	<App id="appid">
 		<pages>
-			<Page title="{i18n>title}" showHeader="false">
+			<Page title="{i18n>title}" showHeader="false" binding="{GETPLANT>/S_T001WSet('03')}">
 				<f:Form editable="false" class="sapUiSizeCompact">
-					<f:title>
+					<!--<f:title>
 						<core:Title text="Ecom: Packing Preparation"/>
-					</f:title>
+					</f:title>-->
 					<f:layout>
 						<f:ResponsiveGridLayout labelSpanXL="6" labelSpanL="6" labelSpanM="6" labelSpanS="6" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
 							emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="3" columnsM="3" singleContainerFullSize="false" backgroundDesign="Transparent"/>
 					</f:layout>
 					<f:formContainers>
-						<f:FormContainer binding="{GETPLANT>/S_T001WSet('03')}">
+						<f:FormContainer >
 							<f:formElements>
-								<f:FormElement label="Site">
-									<f:fields>
-										<Text text="{GETPLANT>EPlant}"/>
-									</f:fields>
-								</f:FormElement>
-							</f:formElements>
-						</f:FormContainer>
-						<f:FormContainer binding="{GETPLANT>/S_T001WSet('03')}">
-							<f:formElements>
-								<f:FormElement label="Warehouse Number">
-									<f:fields>
-										<Text text="{GETPLANT>DC}"/>
-									</f:fields>
-								</f:FormElement>
-							</f:formElements>
-						</f:FormContainer>
-						<f:FormContainer binding="{GETPLANT>/S_T001WSet('03')}">
-							<f:formElements>
-								<f:FormElement label="User">
-									<f:fields>
-										<Text text="{GETPLANT>EUsername}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input value="{GETPLANT>EPlant}" enabled="false" description="Site"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="TO Nr">
-									<f:fields>
-										<SearchField id="tonr" search="toNRSearch"/>
-									</f:fields>
-								</f:FormElement>
-								<f:FormElement label="Outbound Delivery">
-									<f:fields>
-										<Text id="outboundDelivery" text="{ECOMBPOST>Benum}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input value="{GETPLANT>DC}" enabled="false" description="Warehouse Number"/>
+									</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<Input value="{GETPLANT>EUsername}" enabled="false" description="User"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Nr References">
-									<f:fields>
-										<Text id="nrReference" text="{ECOMBPOST>Nrreferences}"/>
-									</f:fields>
+								<f:FormElement>
+									<SearchField id="tonr" search="toNRSearch" placeholder="Enter a TO Nr"/>
+									<HBox alignItems="Center">
+										<Label text="Print Label" design="Bold"/>
+										<Switch id="printSwitch" class="sapUiSmallMarginBegin"/>
+									</HBox>
 								</f:FormElement>
-								<f:FormElement label="References Picked">
-									<f:fields>
-										<Text id="refPicked" text="{ECOMBPOST>Refpicked}"/>
-									</f:fields>
-								</f:FormElement>
-								<f:FormElement label="Total Weight">
-									<f:fields>
-										<Text id="totWeight" text="{ECOMBPOST>Totweight}"/>
-										<Text text="KG"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Benum" value="{ECOMBPOST>Benum}" enabled="false" description="Outbound Delivery"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Total Qty">
-									<f:fields>
-										<Text id="totQty" text="{ECOMBPOST>Totqty}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Nrreferences" value="{ECOMBPOST>Nrreferences}" enabled="false" description="Nr References"/>
 								</f:FormElement>
-								<f:FormElement label="Qty Picked">
-									<f:fields>
-										<Text id="qtyPicked" text="{ECOMBPOST>Qtypicked}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Refpicked" value="{ECOMBPOST>Refpicked}" enabled="false" description="References Picked"/>
 								</f:FormElement>
-								<f:FormElement label="Total Vol">
-									<f:fields>
-										<Text id="totVol" text="{ECOMBPOST>Volum}"/>
-										<Text text="CC"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Totweight" value="{ECOMBPOST>Totweight}" enabled="false" description="Total Weight in KG"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Total To">
-									<f:fields>
-										<Text id="totTo" text="{ECOMBPOST>Totalto}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Totqty" value="{ECOMBPOST>Totqty}" enabled="false" description="Total Qty"/>
+								</f:FormElement>
+								<f:FormElement>
+									<Input id="Qtypicked" value="{ECOMBPOST>Qtypicked}" enabled="false" description="Qty Picked"/>
+								</f:FormElement>
+								<f:FormElement>
+									<Input id="Volum" value="{ECOMBPOST>Volum}" enabled="false" description="Total Vol in CCM"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="TO Managed">
-									<f:fields>
-										<Text id="totManaged" text="{ECOMBPOST>Tomanaged}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Totalto" value="{ECOMBPOST>Totalto}" enabled="false" description="Total To"/>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<Input id="Tomanaged" value="{ECOMBPOST>Tomanaged}" enabled="false" description="TO Managed"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer/>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Proposed Box">
-									<f:fields>
-										<Text id="proposedBox" text="{ECOMBPOST>Proposedbox}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Proposedbox" value="{ECOMBPOST>Proposedbox}" enabled="false" description="Proposed Box"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Max Weight KG">
-									<f:fields>
-										<Text text="{ECOMBPOST>Proposedweight}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Proposedweight" value="{ECOMBPOST>Proposedweight}" enabled="false" description="Max Weight in KG"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Max Volume CC">
-									<f:fields>
-										<Text text="{ECOMBPOST>Proposedvolume}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Proposedvolume" value="{ECOMBPOST>Proposedvolume}" enabled="false" description="Max Volume in CD3"/>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+						<!--<f:FormContainer>
+							<f:formElements>
+								<f:FormElement>
+									<Input id="Custname" value="{ECOMBPOST>Custname}" enabled="false" description="Customer"/>
+								</f:FormElement>
+								<f:FormElement>
+									<Input id="Shipaddress" value="{ECOMBPOST>Shipaddress}" enabled="false" description="Shipping Address" width="140%"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Customer">
-									<f:fields>
-										<Text id="customerName" text="{ECOMBPOST>Custname}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Custaddress" value="{ECOMBPOST>Custaddress}" enabled="false" description="Address" width="140%"/>
 								</f:FormElement>
-								<f:FormElement label="Shipping Address">
-									<f:fields>
-										<Text id="customerAddress" text="{ECOMBPOST>Shipaddress}"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="Inco2" value="{ECOMBPOST>Inco2}" enabled="false" description="Store"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Address">
-									<f:fields>
-										<Text id="shipAddress" text="{ECOMBPOST>Custaddress}"/>
-									</f:fields>
-								</f:FormElement>
-								<f:FormElement label="Store">
-									<f:fields>
-										<Text id="store" text="{ECOMBPOST>Inco2}"/>
-									</f:fields>
+								<f:FormElement id="danger" visible="false">
+									<Image id="dangerimage" width="20%"/>
 								</f:FormElement>
 							</f:formElements>
-						</f:FormContainer>
-						<f:FormContainer/>
+						</f:FormContainer>-->
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Selecting Box">
-									<f:fields>
-										<SearchField id="selectingBox" search="selectingBoxSearch" enabled="false"/>
-									</f:fields>
+								<f:FormElement>
+									<SearchField id="selectingBox" search="selectingBoxSearch" enabled="false" placeholder="Select a Box" width="50%"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Box Id">
-									<f:fields>
-										<Text id="boxId"/>
-									</f:fields>
+								<f:FormElement>
+									<Input id="boxId" enabled="false" description="Box Id" width="140%"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
-						<f:FormContainer/>
+						<f:FormContainer>
+							<!--<f:FormElement id="danger" visible="false">
+								<Image id="dangerimage" width="10%"/>
+							</f:FormElement>-->
+						</f:FormContainer>
 						<f:FormContainer id="fButton1" visible="false">
 							<f:formElements>
 								<f:FormElement>
 									<f:fields>
-										<Button id="F9" text="F9 End TO" type="Emphasized" class="myButton" width="80%" press="PressEndTo"/>
-										<Button id="F3" text="F3 Cancel Packing" type="Emphasized" class="myButton" width="80%" press="PressCancelPacking"/>
+										<Button id="F9" text="End TO" type="Emphasized" class="myButton" width="80%" press="PressEndTo" visible="false"/>
+										<Button id="F3" text="Cancel TO" type="Emphasized" class="myButton" width="80%" press="PressCancelTO"/>
 									</f:fields>
 								</f:FormElement>
 							</f:formElements>
@@ -201,8 +169,8 @@
 							<f:formElements>
 								<f:FormElement>
 									<f:fields>
-										<Button id="F4" text="F4 Print Label" type="Emphasized" class="myButton" width="80%" press="PressRePrint"/>
-										<Button id="F7" text="F7 Defect" type="Emphasized" class="myButton" width="80%" press="PressDefect"/>
+										<Button id="F4" text="Print Label" type="Emphasized" class="myButton" width="80%" press="PressRePrint"/>
+										<Button id="F7" text="Defect" type="Emphasized" class="myButton" width="80%" press="PressDefect"/>
 									</f:fields>
 								</f:FormElement>
 							</f:formElements>
@@ -211,18 +179,16 @@
 							<f:formElements>
 								<f:FormElement>
 									<f:fields>
-										<Button id="F2" text="F2 New Box" type="Emphasized" class="myButton" width="80%" press="PressNewbox"/>
-										<!--<Button id="F1" text="F1 End Box" type="Emphasized" class="myButton" width="80%" press="PressEndBox"/>-->
+										<!--<Button id="F2" text="New Box" type="Emphasized" class="myButton" width="40%" press="PressNewbox" visible="false"/>-->
+										<Image id="dangerimage" width="20%"/>
 									</f:fields>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
 						<f:FormContainer>
 							<f:formElements>
-								<f:FormElement label="Scan EAN">
-									<f:fields>
-										<SearchField id="scanEAN" search="scanEANSearch" liveChange="keyPress" enabled="false"/>
-									</f:fields>
+								<f:FormElement>
+									<SearchField id="scanEAN" search="scanEANSearch" liveChange="keyPress" enabled="false" placeholder="Scan an EAN" width="50%" visible="false"/>
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
@@ -237,35 +203,45 @@
 								</f:FormElement>
 							</f:formElements>
 						</f:FormContainer>
+						<f:FormContainer id="" visible="false">
+							<f:formElements>
+								<f:FormElement>
+									<f:fields>
+										<Button text="New Box" type="Emphasized" class="myButton" width="40%" press="PressNewbox"/>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
 					</f:formContainers>
 				</f:Form>
 				<Table id="EANTable">
-					<headerToolbar>
+					<!--<headerToolbar>
 						<Toolbar id="lineItemsToolbar">
 							<content>
 								<Button icon="sap-icon://action-settings" press="onPersoButtonPressed"/>
 							</content>
 						</Toolbar>
-					</headerToolbar>
+					</headerToolbar>-->
 					<columns>
-						<Column id="head_ean"><Label text="EAN (EA)"/></Column>
-						<Column id="head_desc"><Label text="Description"/></Column>
-						<Column id="head_toItem"><Label text="TO Item"/></Column>
+						<Column id="head_ean" width="7rem"><Label text="EAN (EA)"/></Column>
+						<Column id="head_desc" width="17rem"><Label text="Description"/></Column>
+						<Column id="head_toItem"><Label text="TO"/></Column>
 						<Column id="head_pickedUnit"><Label text="Picked Unit"/></Column>
-						<Column id="head_qtyToBePicked"><Label text="Qty to be Picked"/></Column>
-						<Column id="head_qtyPicked"><Label text="Qty Picked"/></Column>
+						<Column id="head_qtyToBePicked"><Label text="To be Picked"/></Column>
+						<Column id="head_qtyPicked"><Label text="Picked"/></Column>
 						<Column id="head_Status"><Label text="Status"/></Column>
-						<Column id="head_qtyPacked"><Label text="Qty Packed"/></Column>
-						<Column id="head_qtyDefect"><Label text="Qty Defect"/></Column>
-						<Column id="head_boxId"><Label text="Box Id"/></Column>
+						<Column id="head_qtyPacked"><Label text="Packed"/></Column>
+						<Column id="head_qtyDefect"><Label text="Defect"/></Column>
+						<Column id="head_qtyOverpick"><Label text="Overpick"/></Column>
+						<!--<Column id="head_boxId"><Label text="Box Id"/></Column>-->
 						<Column id="head_specPack"><Label text="Special Packaging"/></Column>
 						<Column id="head_fromStorType"><Label text="From Storage Type"/></Column>
-						<Column id="head_fromBin"><Label text="From Bin"/></Column>
+						<Column id="head_fromBin" width="5rem"><Label text="From Bin"/></Column>
 						<Column id="head_packedBy"><Label text="Packed by"/></Column>
 						<Column id="head_datePacked"><Label text="Date Packed"/></Column>
 						<Column id="head_timePacked"><Label text="Time Packed"/></Column>
 						<Column id="head_mat"><Label text="Material"/></Column>
-						<Column id="head_bpostBox"><Label text="Bpost Box"/></Column>
+						<Column id="head_bpostBox"><Label text="Gare"/></Column>
 					</columns>
 					<!--<items>
 						<ColumnListItem type="Active">
